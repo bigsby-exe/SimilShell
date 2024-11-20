@@ -9,7 +9,7 @@ write-Host "Enter location of PowerShell files and profiles (e.g. OneDrive folde
 write-host "This needs to have a profile.ps1 at the root level"
 $destinationFolder = Read-Host "Location"
 
-$Modules_source = Join-Path -Path $folderPath -ChildPath "\Modules"
+$Modules_source = Join-Path -Path $destinationFolder -ChildPath "\Modules"
 $Modules_destination = "C:\Windows\System32\WindowsPowerShell\v1.0\Modules"
 
 Robocopy $Modules_source $Modules_destination /MIR /FFT /Z /W:5
