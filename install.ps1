@@ -10,7 +10,11 @@ write-host "This needs to have a profile.ps1 at the root level"
 $destinationFolder = Read-Host "Location"
 
 $Modules_source = Join-Path -Path $destinationFolder -ChildPath "\Modules"
-$Modules_destination = "C:\Windows\System32\WindowsPowerShell\v1.0\Modules"
+$Modules_destination = "C:\Windows\System32\WindowsPowerShell\v1.0\Modules\Custom"
+
+if (!(Test-Path -Path $Modules_destination)) {
+    New-Item -Path $Modules_destination -ItemType Directory
+}
 
 Robocopy $Modules_source $Modules_destination /MIR /FFT /Z /W:5
 
