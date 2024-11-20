@@ -28,7 +28,7 @@ $profileFilePath = $PROFILE.AllUsersAllHosts
 if (!(Test-Path -Path $destinationFolder)) {
     New-Item -Path $destinationFolder -ItemType Directory
 }
-$similprofile = Join-Path -Path $folderPath -ChildPath "profile.ps1"
+$similprofile = Join-Path -Path $destinationFolder -ChildPath "profile.ps1"
 
 $lineToAdd = ". $similprofile"
 if (Test-Path $profileFilePath) {
